@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Exam.API.DTO.AuthorDTO
+﻿namespace Exam.API.DTO.AuthorDTO
 {
     public class AuthorDTO
     {
@@ -16,5 +10,13 @@ namespace Exam.API.DTO.AuthorDTO
         public int Counter { get; set; }
         [Required]
         public string Role { get; set; }
+        [Required]
+        public IEnumerable<string> Materials { get; set; }
+
+        public override string ToString()
+        {
+            string materials = Materials.ToString();
+            return $"Id: [{Id}]; Name: {Name}; Counter: {Counter}; Role: {Role}; Materials: {materials}";
+        }
     }
 }

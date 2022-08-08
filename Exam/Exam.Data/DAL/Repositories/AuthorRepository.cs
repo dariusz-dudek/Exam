@@ -10,6 +10,8 @@ namespace Exam.Data.DAL.Repositories
         public async Task<IEnumerable<Author>> GetAllAsync()
             => await Context
             .Authors
+            .Include(a => a.Materials)
+            .Include(a => a.Reviews)
             .ToListAsync();
     }
 }

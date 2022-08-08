@@ -20,5 +20,7 @@
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<AuthorDTO>))]
         public async Task<ActionResult<IEnumerable<AuthorDTO>>> GetAll()
             => Ok(await _authorService.GetAll());
+
+
     }
 }
