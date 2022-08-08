@@ -7,7 +7,9 @@ namespace Exam.Data.DAL.Repositories
         {
         }
 
-        public async Task<IEnumerable<Author>> GetAllReadOnlyAsync()
-            => await Context.Authors.AsNoTracking().ToListAsync();
+        public async Task<IEnumerable<Author>> GetAllAsync()
+            => await Context
+            .Authors
+            .ToListAsync();
     }
 }

@@ -1,13 +1,13 @@
-﻿insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('admin', 93);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('user', 95);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('llasseter2', 109);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('aerangy3', 98);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('crintoul4', 104);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('atrobe5', 92);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('vthorold6', 118);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('gcrolly7', 94);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('lerricker8', 88);
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Counter) values ('akitchiner9', 109);
+﻿insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('admin', 'admin', 93, 'Admin');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('user','user', 95, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('llasseter2','llasseter2', 109, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('aerangy3','aerangy3', 98, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('crintoul4','crintoul4', 104, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('atrobe5','atrobe5', 92, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('vthorold6','vthorold6', 118, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('gcrolly7', 'gcrolly7', 94, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('lerricker8', 'lerricker8', 88, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('akitchiner9', 'akitchiner9', 109, 'User');
 
 
 insert into [ExamAPIDB].[dbo].[MaterialTypes] (Name, Definition) values ('Video tutorial', 'Video tutorial is a video material that focuses mostly on guiding step-by-step in dedicated topic');

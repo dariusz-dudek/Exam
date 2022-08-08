@@ -1,7 +1,14 @@
-﻿global using Exam.Data.Context;
+﻿global using AutoMapper;
+global using Exam.API.DTO.AuthorDTO;
+global using Exam.API.Services;
+global using Exam.API.Services.Interfaces;
+global using Exam.Data.Context;
 global using Exam.Data.DAL.Interfaces;
 global using Exam.Data.DAL.Repositories;
 global using Exam.Data.Entries;
-global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
+global using Swashbuckle.AspNetCore.Annotations;
+global using System.ComponentModel.DataAnnotations;
+global using System.Net.Mime;
+global using System.Text.Json.Serialization;

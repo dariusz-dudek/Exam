@@ -2,6 +2,6 @@
 {
     public interface IAuthorRepository : IRepository<Author>
     {
-        Task<IEnumerable<Author>> GetAllReadOnlyAsync();
+        Task<IEnumerable<Author>> GetAllAsync();
     }
 }
