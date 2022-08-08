@@ -13,5 +13,10 @@ namespace Exam.Data.DAL.Repositories
             .Include(a => a.Materials)
             .Include(a => a.Reviews)
             .ToListAsync();
+
+        public async Task<bool> IsExistByNameAsync(string name)
+            => await Context
+            .Authors
+            .AnyAsync(a => a.Name == name);
     }
 }

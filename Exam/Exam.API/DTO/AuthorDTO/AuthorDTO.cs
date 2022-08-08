@@ -12,11 +12,13 @@
         public string Role { get; set; }
         [Required]
         public IEnumerable<string> Materials { get; set; }
+        public IEnumerable<string> Reviews { get; set; }
 
         public override string ToString()
         {
             string materials = Materials.ToString();
-            return $"Id: [{Id}]; Name: {Name}; Counter: {Counter}; Role: {Role}; Materials: {materials}";
+            string reviews = Reviews.ToString();
+            return $"Id: [{Id}]; Name: {Name}; Counter: {Counter}; Role: {Role}; Materials: {materials}; Reviews: {reviews}";
         }
     }
 }

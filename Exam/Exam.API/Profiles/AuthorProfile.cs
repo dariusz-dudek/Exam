@@ -6,7 +6,10 @@
         {
             CreateMap<Author, AuthorDTO>()
                 .ForMember(dest => dest.Materials,
-                opt => opt.MapFrom<AuthorMaterialsIncludesResolver>());
+                opt => opt.MapFrom<AuthorMaterialsIncludesResolver>())
+                .ForMember(dest => dest.Reviews, opt => opt.MapFrom<AuthorReviewsIncludesResolver>());
+
+            CreateMap<AuthorPostDTO, Author>();
         }
     }
 
@@ -23,6 +26,22 @@
                 }
             }
             return materials.AsEnumerable();
+        }
+    }
+
+    public class AuthorReviewsIncludesResolver : IValueResolver<Author, AuthorDTO, IEnumerable<string>>
+    {
+        public IEnumerable<string> Resolve(Author source, AuthorDTO destination, IEnumerable<string> destMember, ResolutionContext context)
+        {
+            var reviewers = new List<string>();
+            if (source.Reviews != null && source.Reviews.Any())
+            {
+                foreach (var review in source.Reviews)
+                {
+                    reviewers.Add(review.RewievText);
+                }
+            }
+            return reviewers.AsEnumerable();
         }
     }
 }

@@ -9,5 +9,7 @@ namespace Exam.API.Services.Interfaces
     public interface IAuthorService
     {
         Task<IEnumerable<AuthorDTO>> GetAll();
+        Task<int> CreateNewAsync(AuthorPostDTO authorPostDTO);
+        Task<bool> IsExistByNameAsync(string name);
     }
 }
