@@ -16,8 +16,10 @@ var connectionString = builder.Configuration.GetConnectionString("ExamAPIDB");
 builder.Services.AddDbContext<ExamContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
-builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
 
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IMaterialService, MaterialService>();
 
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<LoggingMiddleware>();

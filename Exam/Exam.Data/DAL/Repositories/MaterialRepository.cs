@@ -5,5 +5,10 @@
         public MaterialRepository(ExamContext context) : base(context)
         {
         }
+
+        public async Task<IEnumerable<Material>> GetAllAsync()
+            => await Context
+            .Materials
+            .ToListAsync();
     }
 }
