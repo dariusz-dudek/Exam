@@ -21,6 +21,8 @@ namespace Exam.API.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<MaterialDTO>))]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<IEnumerable<MaterialDTO>>> Get()
             => Ok(await _materialService.GetAllAsync());
 
@@ -34,6 +36,8 @@ namespace Exam.API.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(MaterialDTO))]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<MaterialDTO>>> GetByMaterialTypeId(int materialTypeId)
             => Ok(await _materialService.GetByMaterialTypeIdAsync(materialTypeId));
 
@@ -48,6 +52,8 @@ namespace Exam.API.Controllers
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
         [SwaggerResponse(StatusCodes.Status409Conflict)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Post(MaterialPostDTO materialPostDTO)
         {
             int id = await _materialService.CreateNewAsync(materialPostDTO);
@@ -67,6 +73,8 @@ namespace Exam.API.Controllers
         [SwaggerResponse(StatusCodes.Status409Conflict)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Patch(int materialId, MaterialPatchDTO materialPatchDTO)
             => Ok($"The changes have passed successfully on material ID=[{await _materialService.UpdateMaterialAsync(materialId, materialPatchDTO)}]");
 
@@ -81,6 +89,8 @@ namespace Exam.API.Controllers
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(int))]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int materialId)
             => Ok($"Actor was removed on ID=[{await _materialService.DeleteMaterialAsync(materialId)}]");
 
@@ -90,6 +100,8 @@ namespace Exam.API.Controllers
         [SwaggerResponse(StatusCodes.Status409Conflict)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Put(MaterialPutDTO materialPutDTO)
             => Ok($"The changes have passed successfully on material ID=[{await _materialService.PutAsync(materialPutDTO)}]");
     }

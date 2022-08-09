@@ -18,14 +18,23 @@
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<AuthorDTO>))]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<IEnumerable<AuthorDTO>>> GetAll()
             => Ok(await _authorService.GetAll());
 
+        /// <summary>
+        /// Add new Author
+        /// </summary>
+        /// <param name="authorPostDTO">Data for new Author</param>
+        /// <returns>Author id created from database</returns>
         [HttpPost]
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status201Created, Type = typeof(AuthorDTO))]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status409Conflict)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Create(AuthorPostDTO authorPostDTO)
         {
             int id = await _authorService.CreateNewAsync(authorPostDTO);
@@ -42,6 +51,8 @@
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(int))]
         [SwaggerResponse(StatusCodes.Status409Conflict)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Put(AuthorPutDTO authorPutDTO)
             => Ok($"The changes have passed successfully on actor ID=[{await _authorService.PutAsync(authorPutDTO)}]");
 
@@ -57,6 +68,8 @@
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(int))]
         [SwaggerResponse(StatusCodes.Status409Conflict)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> PATCH(int actorId, AuthorPatchDTO actorData)
             => Ok($"The changes have passed successfully on actor ID=[{await _authorService.UpdateAuthorAsync(actorId, actorData)}]");
 
@@ -65,6 +78,8 @@
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(int))]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int actorId)
             => Ok($"Actor was removed on ID=[{await _authorService.DeleteAuthorAsync(actorId)}]");
     }

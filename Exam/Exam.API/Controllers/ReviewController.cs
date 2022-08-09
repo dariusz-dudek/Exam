@@ -21,6 +21,8 @@ namespace Exam.API.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<ReviewDTO>))]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult<IEnumerable<ReviewDTO>>> Get()
             => Ok(await _reviewService.GetAll());
 
@@ -35,6 +37,8 @@ namespace Exam.API.Controllers
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status409Conflict)]
         [SwaggerResponse(StatusCodes.Status404NotFound)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult> Post(ReviewPostDTO reviewPostDTO)
         {
             int id = await _reviewService.CreateNewAsync(reviewPostDTO);
@@ -51,6 +55,8 @@ namespace Exam.API.Controllers
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(int))]
         [SwaggerResponse(StatusCodes.Status409Conflict)]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin, User")]
         public async Task<ActionResult> Put(ReviewPutDTO reviewPutDTO)
             => Ok($"The changes have passed successfully on actor ID=[{await _reviewService.PutAsync(reviewPutDTO)}]");
 
@@ -64,6 +70,8 @@ namespace Exam.API.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(int))]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Delete(int reviewId)
             => Ok($"Review was removed on ID=[{await _reviewService.DeleteReviewAsync(reviewId)}]");
     }
