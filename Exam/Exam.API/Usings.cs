@@ -1,5 +1,6 @@
 ﻿global using AutoMapper;
 global using Exam.API.DTO.AuthorDTO;
+global using Exam.API.Middleware;
 global using Exam.API.Services;
 global using Exam.API.Services.Interfaces;
 global using Exam.Data.Context;

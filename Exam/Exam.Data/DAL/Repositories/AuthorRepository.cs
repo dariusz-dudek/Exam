@@ -14,6 +14,11 @@ namespace Exam.Data.DAL.Repositories
             .Include(a => a.Reviews)
             .ToListAsync();
 
+        public async Task<Author> GetById(int authorId)
+            => await Context
+            .Authors
+            .FirstOrDefaultAsync(a => a.Id == authorId);
+
         public async Task<bool> IsExistByNameAsync(string name)
             => await Context
             .Authors

@@ -4,5 +4,6 @@
     {
         Task<IEnumerable<Author>> GetAllAsync();
         Task<bool> IsExistByNameAsync(string name);
+        Task<Author> GetById(int authorId);
     }
 }
