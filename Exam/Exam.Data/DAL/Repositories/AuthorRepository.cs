@@ -20,6 +20,11 @@ namespace Exam.Data.DAL.Repositories
             .Include(a => a.Reviews)
             .ToListAsync();
 
+        public Task<IEnumerable<Material>> GetAllMaterialsForGivenAuthorIdWithReviewAbove(int authorId, int above)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Author> GetByIdAsync(int authorId)
             => await Context
             .Authors

@@ -10,5 +10,10 @@
             => await Context
             .Materials
             .ToListAsync();
+
+        public async Task<Material> GetByIdAsync(int materialId)
+            => await Context
+            .Materials
+            .FirstOrDefaultAsync(m => m.Id == materialId);
     }
 }
