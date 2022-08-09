@@ -13,5 +13,6 @@
         Task<int> PutAsync(MaterialPutDTO authorPutDTO);
 
         Task<IEnumerable<MaterialDTO>> GetByMaterialTypeIdAsync(int materialTypeId);
+        Task<IEnumerable<MaterialDTO>> GetByAuthorIdAndReviewAboveAsync(int authorId, int above);
     }
 }

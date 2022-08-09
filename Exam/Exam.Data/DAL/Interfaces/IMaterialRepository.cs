@@ -7,5 +7,6 @@
         Task<Material> GetByIdAsync(int materialId);
 
         Task<IEnumerable<Material>> GetByMaterialTypeIdAsync(int materialTypeId);
+        Task<IEnumerable<Material>> GetByAuthorIdAndReviewAboveAsync(int authorId, int above);
     }
 }

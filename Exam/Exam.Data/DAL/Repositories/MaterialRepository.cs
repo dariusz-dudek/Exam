@@ -11,6 +11,12 @@
             .Materials
             .ToListAsync();
 
+        public async Task<IEnumerable<Material>> GetByAuthorIdAndReviewAboveAsync(int authorId, int above)
+            => await Context
+            .Materials
+            .Where(m => m.AuthorId == authorId && m.Rewievs.Average(r => r.RevievPoints) > above)
+            .ToListAsync();
+
         public async Task<Material> GetByIdAsync(int materialId)
             => await Context
             .Materials

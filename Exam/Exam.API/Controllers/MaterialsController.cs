@@ -39,6 +39,22 @@
             => Ok(await _materialService.GetByMaterialTypeIdAsync(materialTypeId));
 
         /// <summary>
+        /// Get Materials from author by id by above
+        /// </summary>
+        /// <param name="authorId">Author id</param>
+        /// <param name="above">Above int</param>
+        /// <returns>List materials from Author by id and above Review poins</returns>
+        [HttpGet]
+        [Route("{authorId}/{above}")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(MaterialDTO))]
+        [SwaggerResponse(StatusCodes.Status404NotFound)]
+        [SwaggerResponse(StatusCodes.Status403Forbidden)]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<IEnumerable<MaterialDTO>>> GetByAuthorIdAndReviewAbove(int authorId, int above)
+            => Ok(await _materialService.GetByAuthorIdAndReviewAboveAsync(authorId, above));
+
+        /// <summary>
         /// Add new Material
         /// </summary>
         /// <param name="materialPostDTO">Date of the new material</param>
