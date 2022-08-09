@@ -1,13 +1,13 @@
-﻿insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('admin', 'admin', 93, 'Admin');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('user','user', 95, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('llasseter2','llasseter2', 109, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('aerangy3','aerangy3', 98, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('crintoul4','crintoul4', 104, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('atrobe5','atrobe5', 92, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('vthorold6','vthorold6', 118, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('gcrolly7', 'gcrolly7', 94, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('lerricker8', 'lerricker8', 88, 'User');
-insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('akitchiner9', 'akitchiner9', 109, 'User');
+﻿insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('admin', '8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918', 93, 'Admin');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('user','04F8996DA763B7A969B1028EE3007569EAF3A635486DDAB211D512C85B9DF8FB', 95, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('llasseter2','F8CBEBF50CB6C57CB2DFF5AC2F9E4B600B015FBE64FB320A51BF544D317D9333', 109, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('aerangy3','191CB08C52DA342375C3489558B402B579CFCB00E1D93A89017199D6BA2F67BA', 98, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('crintoul4','102F7791890E9ADED568F5CC9EAE011FF47C54A41A96271E293F28DA47CCDF3F', 104, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('atrobe5','0A10D9821A2E967462D1B84E3709A76D292D5E6A075BBE81F68782A692B18A73', 92, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('vthorold6','7336482CFB8480C5A294D3C5FB2DF75B3339DC9191398A5A7DE77626DE40B818', 118, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('gcrolly7', 'FB8B50EF75AD8868C9E3F07720BF03173D58E7EE8AE6A90F10377E6C502FAFCA', 94, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('lerricker8', '2D088E516201991C6D270EE83B136000A4F9C3C2C74E7673EE2B998FFDDDC6D1', 88, 'User');
+insert into [ExamAPIDB].[dbo].[Authors] (Name, Password, Counter, Role) values ('akitchiner9', '11B6C0045F80CCB66B161527FF4AA1AB5D7EC208E2ACC63BBA5CAF29395E7358', 109, 'User');
 
 
 insert into [ExamAPIDB].[dbo].[MaterialTypes] (Name, Definition) values ('Video tutorial', 'Video tutorial is a video material that focuses mostly on guiding step-by-step in dedicated topic');

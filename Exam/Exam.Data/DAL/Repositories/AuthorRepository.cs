@@ -37,7 +37,7 @@
             .AnyAsync(a => a.Name == name);
 
         public async Task<Author> GetAuthorByNameAndPasswordAsync(string name, string password)
-            => await Context.Authors.FirstOrDefaultAsync(a => a.Name == name && a.Password == password);
+            => await Context.Authors.FirstOrDefaultAsync(a => a.Name == name && a.Password == HashPassword(password));
         public string HashPassword(string password)
         {
             var hash = SHA256.Create();
