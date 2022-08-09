@@ -1,5 +1,4 @@
-﻿
-namespace Exam.API.Services
+﻿namespace Exam.API.Services
 {
     public class AuthorService : IAuthorService
     {

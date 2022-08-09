@@ -19,7 +19,6 @@
             .Include(a => a.Reviews)
             .ToListAsync();
 
-
         public async Task<Author> GetByIdAsync(int authorId)
             => await Context
             .Authors
@@ -38,6 +37,7 @@
 
         public async Task<Author> GetAuthorByNameAndPasswordAsync(string name, string password)
             => await Context.Authors.FirstOrDefaultAsync(a => a.Name == name && a.Password == HashPassword(password));
+
         public string HashPassword(string password)
         {
             var hash = SHA256.Create();
@@ -62,6 +62,5 @@
             entity.Password = HashPassword(entity.Password);
             Context.Authors.Update(entity);
         }
-
     }
 }

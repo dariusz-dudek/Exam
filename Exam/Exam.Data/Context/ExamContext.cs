@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace Exam.Data.Context
+﻿namespace Exam.Data.Context
 {
     public class ExamContext : DbContext
     {

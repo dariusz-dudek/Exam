@@ -89,7 +89,6 @@
 
         public async Task<int> UpdateMaterialAsync(int materialId, MaterialPatchDTO materialPatchDTO)
         {
-
             var material = await _materialRepository.GetByIdAsync(materialId);
 
             if (materialPatchDTO.Title != null)
@@ -103,7 +102,6 @@
             }
             else if (materialPatchDTO.AuthorId == null)
             {
-
             }
             else
             {
@@ -119,7 +117,6 @@
             }
             else if (materialPatchDTO.MaterialTypeId == null)
             {
-
             }
             else
             {
