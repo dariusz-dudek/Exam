@@ -7,5 +7,6 @@
         Task<int> UpdateMaterialAsync(int materialId, MaterialPatchDTO materialPatchDTO);
         Task<int> DeleteMaterialAsync(int id);
         Task<int> PutAsync(MaterialPutDTO authorPutDTO);
+        Task<IEnumerable<MaterialDTO>> GetByMaterialTypeIdAsync(int materialTypeId);
     }
 }

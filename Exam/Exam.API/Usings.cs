@@ -2,6 +2,7 @@
 global using Exam.API.DTO.AuthorDTO;
 global using Exam.API.DTO.MaterialDTO;
 global using Exam.API.DTO.MaterialsDTO;
+global using Exam.API.DTO.ReviewDTO;
 global using Exam.API.Middleware;
 global using Exam.API.Services;
 global using Exam.API.Services.Interfaces;

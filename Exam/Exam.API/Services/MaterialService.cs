@@ -51,6 +51,16 @@
             return _mapper.Map<IEnumerable<MaterialDTO>>(materials);
         }
 
+        public async Task<IEnumerable<MaterialDTO>> GetByMaterialTypeIdAsync(int materialTypeId)
+        {
+            if (await _materialTypesRepository.GetByIdAsync(materialTypeId) == null)
+                throw new ResourceNotFoundException("Material type not found");
+            var materials = await _materialRepository.GetByMaterialTypeIdAsync(materialTypeId);
+            if (materials == null)
+                throw new ResourceNotFoundException("Materials not found");
+            return _mapper.Map<IEnumerable<MaterialDTO>>(materials);
+        }
+
         public async Task<int> PutAsync(MaterialPutDTO materialPutDTO)
         {
             var material = await _materialRepository.GetByIdAsync(materialPutDTO.Id);

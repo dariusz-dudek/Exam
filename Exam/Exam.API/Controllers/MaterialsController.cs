@@ -25,6 +25,19 @@ namespace Exam.API.Controllers
             => Ok(await _materialService.GetAllAsync());
 
         /// <summary>
+        /// Get all materials by material type
+        /// </summary>
+        /// <param name="materialTypeId">Material type id</param>
+        /// <returns>List of materials by material type</returns>
+        [HttpGet]
+        [Route("{materialTypeId}")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(MaterialDTO))]
+        [SwaggerResponse(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<IEnumerable<MaterialDTO>>> GetByMaterialTypeId(int materialTypeId)
+            => Ok(await _materialService.GetByMaterialTypeIdAsync(materialTypeId));
+
+        /// <summary>
         /// Add new Material
         /// </summary>
         /// <param name="materialPostDTO">Date of the new material</param>

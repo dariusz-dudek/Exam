@@ -20,10 +20,12 @@ namespace Exam.Data.DAL.Repositories
             .Include(a => a.Reviews)
             .ToListAsync();
 
-        public Task<IEnumerable<Material>> GetAllMaterialsForGivenAuthorIdWithReviewAbove(int authorId, int above)
-        {
-            throw new NotImplementedException();
-        }
+        //public async Task<IEnumerable<Material>> GetAllMaterialsForGivenAuthorIdWithReviewAbove(int authorId, int above)
+        //{ 
+        //    var actor = await Context.Authors.Include(a => a.Reviews).Include(a => a.Materials).FirstOrDefaultAsync(a => a.Id == authorId);
+        //    var materials = actor.Reviews.Where(a => a.RevievPoints > above);
+        //    return
+        //} 
 
         public async Task<Author> GetByIdAsync(int authorId)
             => await Context
