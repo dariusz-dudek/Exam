@@ -39,6 +39,7 @@ namespace Exam.API.Services
             author.Name = authorPutDTO.Name;
             author.Password = authorPutDTO.Password;
             author.Role = authorPutDTO.Role;
+            _repository.Update(author);
             await _repository.SaveChangesAsync();
             return author.Id;
         }

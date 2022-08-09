@@ -70,7 +70,7 @@
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [SwaggerResponse(StatusCodes.Status403Forbidden)]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> PATCH(int actorId, AuthorPatchDTO actorData)
+        public async Task<ActionResult> Patch(int actorId, AuthorPatchDTO actorData)
             => Ok($"The changes have passed successfully on actor ID=[{await _authorService.UpdateAuthorAsync(actorId, actorData)}]");
 
         [HttpDelete]

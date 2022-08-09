@@ -47,5 +47,21 @@
             return stringToReturn;
         }
 
+        public new void Create(Author entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
+            entity.Password = HashPassword(entity.Password);
+            Context.Authors.Add(entity);
+        }
+
+        public new void Update(Author entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
+            entity.Password = HashPassword(entity.Password);
+            Context.Authors.Update(entity);
+        }
+
     }
 }
