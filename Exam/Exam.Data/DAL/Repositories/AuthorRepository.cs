@@ -1,5 +1,4 @@
-﻿
-namespace Exam.Data.DAL.Repositories
+﻿namespace Exam.Data.DAL.Repositories
 {
     public class AuthorRepository : Repository<Author>, IAuthorRepository
     {
@@ -20,12 +19,6 @@ namespace Exam.Data.DAL.Repositories
             .Include(a => a.Reviews)
             .ToListAsync();
 
-        //public async Task<IEnumerable<Material>> GetAllMaterialsForGivenAuthorIdWithReviewAbove(int authorId, int above)
-        //{ 
-        //    var actor = await Context.Authors.Include(a => a.Reviews).Include(a => a.Materials).FirstOrDefaultAsync(a => a.Id == authorId);
-        //    var materials = actor.Reviews.Where(a => a.RevievPoints > above);
-        //    return
-        //} 
 
         public async Task<Author> GetByIdAsync(int authorId)
             => await Context
@@ -42,5 +35,17 @@ namespace Exam.Data.DAL.Repositories
             => await Context
             .Authors
             .AnyAsync(a => a.Name == name);
+
+        public async Task<Author> GetAuthorByNameAndPasswordAsync(string name, string password)
+            => await Context.Authors.FirstOrDefaultAsync(a => a.Name == name && a.Password == password);
+        public string HashPassword(string password)
+        {
+            var hash = SHA256.Create();
+            var passwordBytes = Encoding.Default.GetBytes(password);
+            var hashedPassword = hash.ComputeHash(passwordBytes);
+            var stringToReturn = Convert.ToHexString(hashedPassword);
+            return stringToReturn;
+        }
+
     }
 }
