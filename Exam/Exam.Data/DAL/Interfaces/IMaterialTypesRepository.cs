@@ -2,5 +2,6 @@
 {
     public interface IMaterialTypesRepository : IRepository<MaterialType>
     {
+        Task<MaterialType> GetByIdAsync(int materialId);
     }
 }

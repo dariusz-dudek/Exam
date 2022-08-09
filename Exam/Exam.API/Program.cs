@@ -20,6 +20,7 @@ builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
 
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IMaterialService, MaterialService>();
+builder.Services.AddScoped<IMaterialTypesRepository, MaterialTypesRepository>();
 
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<LoggingMiddleware>();

@@ -3,5 +3,6 @@
     public interface IMaterialService
     {
         Task<IEnumerable<MaterialDTO>> GetAllAsync();
+        Task<int> CreateNewAsync(MaterialPostDTO materialPostDTO);
     }
 }

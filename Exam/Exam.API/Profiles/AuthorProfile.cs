@@ -10,6 +10,8 @@
                 .ForMember(dest => dest.Reviews, opt => opt.MapFrom<AuthorReviewsIncludesResolver>());
 
             CreateMap<AuthorPostDTO, Author>();
+            CreateMap<AuthorPatchDTO, Author>();
+            CreateMap<AuthorPutDTO, Author>();
         }
     }
 

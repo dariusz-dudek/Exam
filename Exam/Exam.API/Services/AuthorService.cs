@@ -33,7 +33,7 @@ namespace Exam.API.Services
 
         public async Task<int> PutAsync(AuthorPutDTO authorPutDTO)
         {
-            var author = await _repository.GetById(authorPutDTO.Id);
+            var author = await _repository.GetByIdAsync(authorPutDTO.Id);
             if (author == null)
                 throw new ResourceNotFoundException("Author not found");
             author.Name = authorPutDTO.Name;
@@ -47,7 +47,7 @@ namespace Exam.API.Services
         {
             if (authorPatchDTO.Name == null)
                 throw new ResourceNotFoundException("Author not found");
-            var author = await _repository.GetById(authorId);
+            var author = await _repository.GetByIdAsync(authorId);
             if (authorPatchDTO.Name != null)
                 author.Name = authorPatchDTO.Name;
             if (authorPatchDTO.Password != null)
@@ -61,7 +61,7 @@ namespace Exam.API.Services
 
         public async Task<int> DeleteAuthorAsync(int authorId)
         {
-            var actor = await _repository.GetById(authorId);
+            var actor = await _repository.GetByIdAsync(authorId);
             if (actor == null)
                 throw new ResourceNotFoundException($"Not Found actor with id: {authorId}");
             _repository.Delete(actor);

@@ -6,6 +6,7 @@ namespace Exam.API.Profiles
         public MaterialsProfile()
         {
             CreateMap<Material, MaterialDTO>().ReverseMap();
+            CreateMap<MaterialPostDTO, Material>();
             //.ForMember(dest => dest.Reviews,
             //opt => opt.MapFrom<MaterislIncludesResorver>());
         }
